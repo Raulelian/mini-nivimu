@@ -1,6 +1,4 @@
 # mini-nivimu
-Proyecto de practica para aprender programación e IA
-# mini-nivimu
 
 Mini app de RRHH para practicar Python y Flask.
 
