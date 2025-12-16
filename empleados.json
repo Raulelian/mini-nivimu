@@ -1,0 +1,27 @@
+[
+    {
+        "Nombre": "Paola",
+        "Edad": 35,
+        "Puesto": "Recursos humanos"
+    },
+    {
+        "Nombre": "Bruno",
+        "Edad": 63,
+        "Puesto": "Empresario"
+    },
+    {
+        "Nombre": "Gael",
+        "Edad": 9,
+        "Puesto": "Estudiante"
+    },
+    {
+        "Nombre": "Raúl",
+        "Edad": 35,
+        "Puesto": "Programador"
+    },
+    {
+        "Nombre": "Noé",
+        "Edad": 6,
+        "Puesto": "Estudiante"
+    }
+]

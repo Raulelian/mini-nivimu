@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Nivimu - Empleados</title>
+</head>
+<body>
+    <h1>Lista de empleados</h1>
+
+    <a href="/nuevo">+ añadir nuevo empleado</a>
+
+
+    <ul>
+        {% for empl in empleados %}
+            <li>
+                
+                {{ empl["Nombre"] }} - {{ empl["Edad"] }} años - {{ empl["Puesto"] }}
+
+                <form method="POST" action="/eliminar/{{ loop.index0 }}" style="display:inline;">
+
+                    <button type="submit">X Eliminar</button>
+                    
+                </form>
+
+            </li>
+
+        {% endfor %}
+   
+    </ul>
+
+</body>
+</html>
