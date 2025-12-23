@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
    
     <title>Nuevo empleado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 </head>
 <body>
@@ -14,22 +15,41 @@
     
     <form method="POST">
 
-        <label>Nombre:</label><br>
-        <input type="text" name="nombre" required><br><br>
-       
-        <label>Edad:</label><br>
-        <input type="number" name="edad" required><br><br>
-       
-        <label>puesto:</label><br>
-        <input tipe="text" name="puesto" required><br><br>
+        <div class="form-group">  
 
-        <button type="submit">Guardar empleado</button>
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Edad</label>
+            <input type="number" name="edad" required>
+        
+        </div>
+        
+        <div class="form-group">
+            <label>Puesto</label>
+            <input type="text" name="puesto" required>
+
+        </div>
+
+
+
+        <button class="btn btn-primary" type="submit">
+            Guardar empleado
+
+        </button>
    
     </form>
 
     <br>
 
     <a href="/"> Volver a la lista</a>
+
+</div>
+
     
 </body>
 </html>

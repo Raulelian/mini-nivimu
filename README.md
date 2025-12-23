@@ -23,3 +23,12 @@ Mini app de RRHH para practicar Python y Flask.
 
 3. Abrir en el navegador:
    http://127.0.0.1:5000
+
+
+## Últimos avances (UI y CSS)
+
+- Conexión correcta  de archivos CSS en Flask
+- Mejora visual de la lista de empleados
+- Uso clases CSS reutilizables (.btn, .btn-danger)
+- Alineación de texto y botones con Flexbox
+- Separación clara entre HTML (ESTRUCTURA) y CSS ( ESTILOS)

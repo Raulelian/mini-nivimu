@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Mini Nivimu - Empleados</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
 </head>
 <body>
+
+    <div class="container">
+
     <h1>Lista de empleados</h1>
 
-    <a href="/nuevo">+ añadir nuevo empleado</a>
+    <a class="btn btn-primary" href="/nuevo>+ Añadir nuevo empleado</a>
 
 
-    <ul>
+    <ul class="list">
+
+
         {% for empl in empleados %}
             <li>
                 
                 {{ empl["Nombre"] }} - {{ empl["Edad"] }} años - {{ empl["Puesto"] }}
 
-                <form method="POST" action="/eliminar/{{ loop.index0 }}" style="display:inline;">
+                <form class="form-inline" method="POST" action="/eliminar/{{ loop.index0 }}">
 
-                    <button type="submit">X Eliminar</button>
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
                     
                 </form>
 
@@ -28,5 +34,7 @@
    
     </ul>
 
+</div>
+    
 </body>
 </html>

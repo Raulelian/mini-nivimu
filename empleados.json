@@ -23,5 +23,10 @@
         "Nombre": "Noé",
         "Edad": 6,
         "Puesto": "Estudiante"
+    },
+    {
+        "Nombre": "alma",
+        "Edad": 2,
+        "Puesto": "guarderia"
     }
 ]
