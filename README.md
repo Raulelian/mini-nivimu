@@ -32,3 +32,15 @@ Mini app de RRHH para practicar Python y Flask.
 - Uso clases CSS reutilizables (.btn, .btn-danger)
 - Alineación de texto y botones con Flexbox
 - Separación clara entre HTML (ESTRUCTURA) y CSS ( ESTILOS)
+
+
+## Bloque 1 - pulido final (Nivel 1)
+
+- Corrección de errores en HTML
+- Limpieza y organización del CSS
+- Eliminación de estilos duplicados
+- Mejoras de la experiencia de usuario:
+- Configuración antes de eliminar empleados
+- Codigo mas mantenible y profecional
+
+Este bloque deja la aplicacion lista para ampliaciones (IA).

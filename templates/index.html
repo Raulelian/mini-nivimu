@@ -11,7 +11,7 @@
 
     <h1>Lista de empleados</h1>
 
-    <a class="btn btn-primary" href="/nuevo>+ Añadir nuevo empleado</a>
+    <a class="btn btn-primary" href="/nuevo">+ Añadir nuevo empleado</a>
 
 
     <ul class="list">
@@ -24,7 +24,15 @@
 
                 <form class="form-inline" method="POST" action="/eliminar/{{ loop.index0 }}">
 
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    <button class="btn btn-danger"
+                    
+                    type="submit"
+                    
+                    onclick="return confirm('¿Seguro que quieres eliminar este empleado?')"
+                    
+                    >
+                    
+                    Eliminar</button>
                     
                 </form>
 

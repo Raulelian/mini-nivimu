@@ -27,21 +27,28 @@ a {text-decoration: none;
 
 }
 
+
+/* ✅ LISTA (solo una vez) */
+
 .list {
     list-style: none;
     padding: 0;
-    margin: 16px 0;
+    margin-top: 20px;
 
 }
 .list li {
-    display: inline-block;
-    padding: 10px 14px;
+    background: white;
+    padding: 15px;
+    margin-bottom: 10px;
     border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
 
 }
+
+/* ✅ BOTONES */
 
 
 .btn {
@@ -93,6 +100,9 @@ a {text-decoration: none;
     align-items:  center;
 
 }
+
+
+/* ✅ FORMULARIO */
 
 .form-inline {
     display: inline;
