@@ -44,3 +44,35 @@ Mini app de RRHH para practicar Python y Flask.
 - Codigo mas mantenible y profecional
 
 Este bloque deja la aplicacion lista para ampliaciones (IA).
+
+
+---
+
+## Estado actual del proyecto
+
+### Nivel 1 — Completado ✅
+- Backend en Python (consola y web con Flask)
+- CRUD completo de empleados:
+  - Ver
+  - Añadir
+  - Eliminar
+- Persistencia de datos con JSON
+- Manejo correcto de JSON vacío (uso de `[]`)
+- Frontend con HTML + CSS separados
+- CSS limpio y organizado (sin duplicados)
+- Buenas prácticas:
+  - Sin estilos inline
+  - Clases reutilizables
+  - Separación de responsabilidades
+- Uso de Git y GitHub con commits claros
+
+### Nivel 2 — En progreso 🟡
+- Preparación del proyecto para ampliaciones
+- Refactor inicial del backend
+- Enfoque en robustez, UX y mantenibilidad
+
+### Próximo objetivo 🚀
+- Integrar IA en el proyecto (Nivel 3):
+  - Chatbot básico de RRHH
+  - Procesamiento de texto (resúmenes y clasificación)
+
