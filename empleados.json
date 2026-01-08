@@ -2,31 +2,6 @@
     {
         "Nombre": "Paola",
         "Edad": 35,
-        "Puesto": "Recursos humanos"
-    },
-    {
-        "Nombre": "Bruno",
-        "Edad": 63,
-        "Puesto": "Empresario"
-    },
-    {
-        "Nombre": "Gael",
-        "Edad": 9,
-        "Puesto": "Estudiante"
-    },
-    {
-        "Nombre": "alma",
-        "Edad": 3,
-        "Puesto": "guarderia"
-    },
-    {
-        "Nombre": "Raul",
-        "Edad": 35,
-        "Puesto": "programador"
-    },
-    {
-        "Nombre": "Noe",
-        "Edad": 6,
-        "Puesto": "estudiante"
+        "Puesto": "Recursos Humanos"
     }
 ]

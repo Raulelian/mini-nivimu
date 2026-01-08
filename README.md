@@ -76,3 +76,18 @@ Este bloque deja la aplicacion lista para ampliaciones (IA).
   - Chatbot básico de RRHH
   - Procesamiento de texto (resúmenes y clasificación)
 
+
+---
+
+## Nivel 2 – Robustez del backend (en progreso)
+
+### Manejo seguro de datos
+- Lectura de empleados protegida contra errores:
+  - Archivo JSON inexistente
+  - Archivo JSON vacío o mal formado
+- Uso de código defensivo para evitar caídas de la aplicación
+- Inicialización automática con lista vacía (`[]`) cuando hay errores
+
+Este paso garantiza que la aplicación siga funcionando
+aunque los datos fallen, preparando el proyecto para crecer
+y para integrar IA sin romper la base.

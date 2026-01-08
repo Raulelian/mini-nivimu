@@ -8,8 +8,12 @@ app = Flask(__name__)
 # =========================
 
 def cargar_empleados():
-    with open("empleados.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+
+    try:
+        with open("empleados.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
 
 def guardar_empleados(empleados):
     with open("empleados.json", "w", encoding="utf-8") as f:
@@ -47,10 +51,15 @@ def nuevo_empleado():
     return render_template("nuevo.html")
 
 @app.route("/eliminar/<int:indice>", methods=["POST"])
+
 def eliminar_empleado(indice):
+    
     empleados = cargar_empleados()
+    
     empleados.pop(indice)
+    
     guardar_empleados(empleados)
+    
     return redirect("/")
 
 if __name__ == "__main__":
