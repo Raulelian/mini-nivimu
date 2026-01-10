@@ -135,3 +135,12 @@ input:focus {
     border-color: #007bff;
 
 }
+
+.alert {
+    background: #ffe5e5;
+    border: 1px solid #ffb3b3;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}

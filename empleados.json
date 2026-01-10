@@ -3,5 +3,20 @@
         "Nombre": "Paola",
         "Edad": 35,
         "Puesto": "Recursos Humanos"
+    },
+    {
+        "Nombre": "Raul",
+        "Edad": 35,
+        "Puesto": "programador"
+    },
+    {
+        "Nombre": "Gael",
+        "Edad": 9,
+        "Puesto": "Estudiante"
+    },
+    {
+        "Nombre": "Noe",
+        "Edad": 6,
+        "Puesto": "Estudiante"
     }
 ]

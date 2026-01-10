@@ -11,6 +11,17 @@
 
     <h1>Lista de empleados</h1>
 
+    {% if request.args.get("mensaje") %}
+
+    <p style="color: green; font-weight: bold;">
+
+        {{ request.args.get("mensaje") }}
+
+    </p>
+
+    {% endif %}
+
+    
     <a class="btn btn-primary" href="/nuevo">+ Añadir nuevo empleado</a>
 
 
