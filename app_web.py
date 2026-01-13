@@ -72,7 +72,32 @@ def test_ia():
 
     pregunta = "Explica qué hace mini nivimu en frase corta y clara. "
 
-    return preguntar_a_la_ia(f"{contexto}\n\nPregunta: {pregunta}")        
+    return preguntar_a_la_ia(f"{contexto}\n\nPregunta: {pregunta}")    
+
+
+@app.route("/chat", methods=["GET", "POST"])
+def chat():
+    respuesta = None
+
+    if request.method == "POST":
+        pregunta = request.form.get("pregunta", "").strip()
+
+        if pregunta:
+            empleados = cargar_empleados()
+
+            contexto = (
+                "Mini nivimu es una aaplicación web de RRHH hecha con python y Flask."
+                "Permite ver, añadir y eliminar empleados."
+                f"Actualmente hay {len(empleados)} empleados registrados."
+            
+            )
+
+            respuesta = preguntar_a_la_ia(
+                f"{contexto}\n\nPregunta del usuario: {pregunta}"
+            )
+
+    return render_template("chat.html", respuesta = respuesta)        
+            
 
 
 @app.route("/nuevo", methods=["GET", "POST"])

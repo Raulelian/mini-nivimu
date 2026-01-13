@@ -11,13 +11,13 @@ Mini aplicación de RRHH para aprender programación e integración de IA con Py
   - Versión consola (`app.py`)
   - Versión web con Flask (`app_web.py`)
 - CRUD completo de empleados:
-  - Ver
-  - Añadir
-  - Eliminar
+  - Ver empleados
+  - Añadir empleados
+  - Eliminar empleados
 - Persistencia de datos con JSON
 - Manejo correcto de JSON vacío (`[]`)
 - Frontend con HTML + CSS separados
-- CSS limpio, reutilizable y sin duplicados
+- CSS limpio y reutilizable
 - Buenas prácticas:
   - Sin estilos inline
   - Clases reutilizables (`.btn`, `.btn-primary`, `.btn-danger`)
@@ -26,33 +26,36 @@ Mini aplicación de RRHH para aprender programación e integración de IA con Py
 
 ---
 
-### 🟡 Nivel 2 — Completado
+### ✅ Nivel 2 — Completado
 - Validaciones de formularios:
-  - HTML (UX)
+  - HTML (experiencia de usuario)
   - Flask (seguridad backend)
 - Uso de expresiones regulares (regex)
 - Manejo de errores con `try / except`
 - Código más robusto y mantenible
-- Confirmación de acciones críticas (eliminación)
+- Control de errores en JSON (archivo vacío o inexistente)
+- UX mejorada (mensajes de error claros)
 
 ---
 
-### 🟢 Nivel 3.1 — En progreso (IA)
-- Integración de OpenAI API
-- Configuración segura de API Key con variables de entorno
-- Endpoint de prueba `/test-ia`
+### ✅ Nivel 3.1 — Completado (IA)
+- Integración real de OpenAI API
+- Configuración segura de API Key mediante variables de entorno
 - Manejo de errores externos (rate limit, caídas de API)
+- Endpoint de prueba `/test-ia`
+- Chatbot de RRHH integrado en la web (`/chat`)
+- Formulario de preguntas + respuesta visible en pantalla
 - Contexto dinámico para evitar respuestas inventadas
-- IA responde correctamente sobre el proyecto
+- IA funcional y estable dentro de la aplicación web
 
 ---
 
-## 🧠 Próximo paso
-- Crear interfaz web del chatbot de RRHH:
-  - Formulario para preguntas
-  - Respuesta visible en pantalla
-- Cerrar Nivel 3.1
-- Pasar a Nivel 3.2: procesamiento de texto con IA
+## 🧠 Próximo objetivo — Nivel 3.2
+- Procesamiento de texto con IA:
+  - Resumir textos
+  - Clasificar textos (vacaciones, horarios, bajas, etc.)
+- Reutilizar el motor de IA ya integrado
+- Ampliar el proyecto sin romper lo existente
 
 ---
 
