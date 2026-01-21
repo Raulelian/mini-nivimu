@@ -64,3 +64,31 @@ Mini aplicación de RRHH para aprender programación e integración de IA con Py
 1. Instalar dependencias:
 ```bash
 pip install flask openai
+
+## Estado actual del proyecto
+
+### Nivel 1 — Completado ✅
+- Backend en Python (consola y web con Flask)
+- CRUD de empleados:
+  - Ver lista
+  - Añadir
+  - Eliminar
+- Persistencia con `empleados.json`
+
+### Nivel 2 — Completado ✅
+- Validaciones en formulario y backend (nombre/puesto con letras y espacios, edad 1–99)
+- Manejo de JSON vacío o inexistente (no se cae la app)
+- Frontend con HTML + CSS separados, clases reutilizables y sin estilos inline en lo importante
+
+### Nivel 3.2 — IA (en progreso avanzado) 🟡
+- IA integrada en la web usando la API de OpenAI
+- Ruta `/chat` (chatbot básico de RRHH)
+- Ruta `/procesar-texto`:
+  - Resumir texto
+  - Clasificar texto (categoría + explicación)
+
+#### Rutas disponibles
+- `/` → Lista de empleados
+- `/nuevo` → Añadir empleado
+- `/chat` → Chatbot RRHH
+- `/procesar-texto` → Resumir / clasificar texto con IA
