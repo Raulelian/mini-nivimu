@@ -8,30 +8,68 @@ import os
 
 from openai import OpenAI
 
+
 app = Flask(__name__)
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # --- Configuración ---
 
 RUTA_JSON = "empleados.json"
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# --- Funciones auxiliares ---
+# --- Funciones IA ---
 
 def preguntar_a_la_ia(pregunta: str) -> str:
-
     try:
-        response = client.responses.create (
+        response = client.responses.create(
             model="gpt-4.1-mini",
-       
-        input= pregunta
+            input=pregunta
+        )
 
-    )
+        # Forma correcta en la API nueva
+        texto = response.output_text
 
-        return response.output_text
+        if texto:
+            return texto.strip()
+
+        return "La IA respondió, pero no devolvió texto."
 
     except Exception as e:
-        return "La IA no está disponible ahora mismo. Inténtalo más tarde."
+        return f"Error al contactar con la IA: {str(e)}"
+    
+
+def formatear_clasificacion(texto: str) -> str:
+
+    """
+    Fuerza el formato: CATEGORIA - EXPLICACION
+    
+    """
+
+    if not texto :
+        
+        return ""
+    
+    limpio = texto.strip().replace("\n", " ")
+
+    match = re.match(r"^\s*([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)\s*-\s*(.+)$", limpio)
+    if not match:
+        return limpio
+
+    categoria = match.group(1).upper()
+    explicacion = match.group(2).strip()
+
+    categorias_validas = {"VACACIONES", "HORARIOS", "BAJAS", "OTROS"}
+    if categoria not in categorias_validas:
+        categoria = "OTROS"
+
+    palabras = explicacion.split()
+    if len(palabras) > 12:
+        explicacion = " ".join(palabras[:12]) + "..."
+
+    return f"{categoria} - {explicacion}"
+
+        
+    # --- Funciones datos ---
 
 def cargar_empleados():
     try:
@@ -48,10 +86,12 @@ def guardar_empleados(empleados):
         json.dump(empleados, f, indent=4, ensure_ascii=False)
 
 def solo_letras_y_espacios(texto: str) -> bool:
+
     # Letras (incluye acentos) y espacios. Mínimo 2 caracteres.
+
     return bool(re.fullmatch(r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]{2,40}", texto))
 
-# --- Funciones auxiliares ---
+# --- RUTAS ---
 
 @app.route("/")
 def inicio():
@@ -70,7 +110,7 @@ def test_ia():
             f"Ahora mismo hay {len(empleados)}empleados."
     )        
 
-    pregunta = "Explica qué hace mini nivimu en frase corta y clara. "
+    pregunta = "Explica qué hace Mini Nivimu en frase corta y clara. "
 
     return preguntar_a_la_ia(f"{contexto}\n\nPregunta: {pregunta}")    
 
@@ -86,7 +126,7 @@ def chat():
             empleados = cargar_empleados()
 
             contexto = (
-                "Mini nivimu es una aaplicación web de RRHH hecha con python y Flask."
+                "Mini Nivimu es una aplicación web de RRHH hecha con python y Flask."
                 "Permite ver, añadir y eliminar empleados."
                 f"Actualmente hay {len(empleados)} empleados registrados."
             
@@ -100,6 +140,65 @@ def chat():
             
 
 
+@app.route( "/procesar-texto", methods=["GET", "POST"])
+def procesar_texto():
+
+    resultado = None
+    texto_original = ""
+    accion = "resumir"
+
+    if request.method == "POST":
+        texto_original = request.form.get("texto", "").strip()
+        accion = request.form.get("accion", "resumir")
+
+        if texto_original:
+            if accion == "resumir":
+                prompt = (
+                    "Resume el siguiente texto en español, en 5-7 lineas,"
+                    "Con un tono claro y sencillo:\n\n"
+                    f"{texto_original}"
+
+                )
+
+            elif accion == "clasificar":
+                prompt = (
+                    "Vas a clasificar un texto de RRHH.\n"
+                    "Categorías posibles: vacaciones, horarios, bajas, otros.\n\n"
+                    "Responde en ESTE formato exacto, en una sola línea:\n"
+                    "CATEGORIA - EXPLICACION\n\n"
+                    "Reglas:\n"
+                    "- CATEGORIA debe ser una de las 4 palabras exactas.\n"
+                    "- EXPLICACION debe ser una frase corta (máx 12 palabras).\n"
+                    "- No uses comillas. No uses saltos de línea.\n\n"
+                    f"Texto:\n{texto_original}"
+
+
+
+                )  
+
+            else:
+                prompt = texto_original
+
+                 # ✅ Aquí se llama SIEMPRE a la IA
+
+            resultado = preguntar_a_la_ia(prompt)
+
+            if not resultado:
+                resultado = "No llegó ningua respuesta de la IA ( resultado vacio)."
+
+        else:
+            
+            resultado = "Pega un texto antes de procesar."        
+
+    return render_template(
+        "procesar_texto.html",
+        resultado = resultado,
+        texto = texto_original,
+        accion = accion
+    )                  
+
+
+
 @app.route("/nuevo", methods=["GET", "POST"])
 def nuevo_empleado():
     if request.method == "POST":
@@ -108,21 +207,25 @@ def nuevo_empleado():
         edad_txt = request.form.get("edad", "").strip()
 
         # Validar nombre
+        
         if not solo_letras_y_espacios(nombre):
             return render_template("nuevo.html", error="Nombre inválido: solo letras y espacios (2-40).")
 
+        
         # Validar puesto
+        
         if not solo_letras_y_espacios(puesto):
             return render_template("nuevo.html", error="Puesto inválido: solo letras y espacios (2-40).")
 
         # Validar edad
+        
         try:
             edad = int(edad_txt)
         except ValueError:
             return render_template("nuevo.html", error="Edad inválida: debe ser un número.")
 
         if edad < 1 or edad > 99:
-            return render_template("nuevo.html", error="Edad fuera de rango: usa un número entre 14 y 99.")
+            return render_template("nuevo.html", error="Edad fuera de rango: usa un número entre 1 y 99.")
 
         empleados = cargar_empleados()
 
@@ -130,6 +233,7 @@ def nuevo_empleado():
         empleados.append(nuevo)
 
         guardar_empleados(empleados)
+       
         return redirect("/")
 
     return render_template("nuevo.html")
