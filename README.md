@@ -33,3 +33,27 @@ Permite:
 
 Formato garantizado:
 
+
+---
+
+## ✅ Nivel 3.3 — UX y IA integrada (COMPLETADO)
+
+### Funcionalidades añadidas
+- Menú de navegación funcional en toda la app
+- Mejora visual de cabecera, listas y tarjetas
+- Mensajes UX claros y consistentes (éxito, info y error)
+- Eliminación de estilos inline (CSS centralizado)
+- Chat de RRHH con IA integrada
+- Procesamiento de texto con IA:
+  - Resumen de texto
+  - Clasificación de texto (vacaciones, horarios, bajas, otros)
+- Manejo correcto de errores de IA (cuota, fallos, respuestas vacías)
+
+### Buenas prácticas aplicadas
+- Separación de responsabilidades (HTML / CSS / Flask)
+- Código robusto (try/except)
+- UX profesional (mensajes visibles y claros)
+- Estructura mantenible y escalable
+
+➡️ Proyecto listo para ampliaciones futuras (Nivel 4).
+

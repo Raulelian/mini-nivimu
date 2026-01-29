@@ -1,21 +1,26 @@
+/* =========================
+   BASE
+========================= */
+
 body {
     font-family: arial, sans-serif;
     background-color: #f4f6f8;
     margin: 40px;
-
 }
 
 h1 {
     color: #333;
-
 }
 
-a {text-decoration: none;
+a {
+    text-decoration: none;
     color: #007bff;
     font-weight: bold;
-    
-
 }
+
+/* =========================
+   CONTENEDOR
+========================= */
 
 .container {
     max-width: 800px;
@@ -24,18 +29,65 @@ a {text-decoration: none;
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-
 }
 
+/* =========================
+   NAVEGACIÓN
+========================= */
 
-/* ✅ LISTA (solo una vez) */
+.nav {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #f0f2f5;
+    color: #333;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    opacity: 0.9;
+}
+
+.nav-link.active {
+    background: #007bff;
+    color: white;
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.msg-ok {
+    color: green;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+/* =========================
+   LISTA EMPLEADOS
+========================= */
 
 .list {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-
 }
+
 .list li {
     background: white;
     padding: 15px;
@@ -44,12 +96,11 @@ a {text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-
 }
 
-/* ✅ BOTONES */
-
+/* =========================
+   BOTONES
+========================= */
 
 .btn {
     display: inline-block;
@@ -58,67 +109,41 @@ a {text-decoration: none;
     border: none;
     cursor: pointer;
     font-weight: bold;
-
 }
-
 
 .btn-primary {
     background: #007bff;
     color: white;
-
 }
 
-.btn-danger{
+.btn-danger {
     background: #dc3545;
     color: white;
     font-size: 12px;
     padding: 6px 10px;
-
 }
-
 
 .btn-danger:hover,
 .btn-primary:hover {
     opacity: 0.9;
-
 }
 
-.list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-
-.list li {
-    background: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    display:  flex;
-    justify-content: space-between;
-    align-items:  center;
-
-}
-
-
-/* ✅ FORMULARIO */
+/* =========================
+   FORMULARIOS
+========================= */
 
 .form-inline {
     display: inline;
-    
 }
 
 .form-group {
     margin-bottom: 16px;
-
 }
 
 label {
     font-weight: bold;
     display: block;
     margin-bottom: 6px;
-
 }
 
 input {
@@ -127,14 +152,30 @@ input {
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 14px;
-
 }
 
 input:focus {
     outline: none;
     border-color: #007bff;
-
 }
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: vertical;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* =========================
+   MENSAJES / ALERTAS
+========================= */
 
 .alert {
     background: #ffe5e5;
@@ -143,4 +184,17 @@ input:focus {
     border-radius: 8px;
     margin-bottom: 12px;
     font-weight: bold;
+}
+
+.alert-success {
+    background: #e8fff0;
+    border: 1px solid #9fe3b6;
+    color: #0b6b2f;
+    
+}
+
+.alert-info{
+    background: #eef5ff;
+    border: 1px solid #bcd7ff;
+    color: #084298;
 }

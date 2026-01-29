@@ -234,7 +234,7 @@ def nuevo_empleado():
 
         guardar_empleados(empleados)
        
-        return redirect("/")
+        return redirect("/?mensaje=Empleado%20guardado%20con%20éxito")
 
     return render_template("nuevo.html")
 
@@ -246,7 +246,7 @@ def eliminar_empleado(indice):
         empleados.pop(indice)
         guardar_empleados(empleados)
 
-    return redirect("/")
+    return redirect("/?mensaje=Empleado%20eliminado%20con%20éxito")
 
 # --- Arranque del servidor ---
 
