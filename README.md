@@ -1,4 +1,4 @@
-HR Management System with AI Integration
+# HR Management System with AI Integration
 
 Mini aplicación web de RRHH para aprender Python, Flask y uso práctico de IA.
 
